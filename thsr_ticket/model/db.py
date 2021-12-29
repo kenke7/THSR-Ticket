@@ -15,6 +15,7 @@ class Record(NamedTuple):
     start_station: int = None
     dest_station: int = None
     outbound_time: str = None
+    outbound_date: str = None
     adult_num: str = None
 
 
@@ -34,6 +35,7 @@ class ParamDB:
             book_form.start_station,
             book_form.dest_station,
             book_form.outbound_time,
+            book_form.outbound_date,
             book_form.adult_ticket_num
         )._asdict()  # type: ignore
         with TinyDB(self.db_path, sort_keys=True, indent=4) as db:

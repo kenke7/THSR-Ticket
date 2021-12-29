@@ -12,6 +12,7 @@ def history_info(hists: Iterable[Record], select: bool = True) -> int:
         print("  起程站: " + StationMapping(r.start_station).name)
         print("  到達站: " + StationMapping(r.dest_station).name)
         t_str = r.outbound_time
+        print("  日期: " + r.outbound_date)
         print("  出發時間: {}:{} (A: 早上, P: 下午, N: 中午)".format(t_str[:-3], t_str[-3:]))
         print("  大人票數: " + r.adult_num[:-1])
 

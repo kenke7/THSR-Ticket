@@ -47,7 +47,8 @@ class BookingFlow:
         # First page. Booking options
         self.set_start_station()
         self.set_dest_station()
-        self.book_form.outbound_date = self.book_info.date_info("出發")
+        # self.book_form.outbound_date = self.book_info.date_info("出發")
+        self.set_outbound_date()
         self.set_outbound_time()
         self.set_adult_ticket_num()
         print("等待驗證碼...")
@@ -106,6 +107,12 @@ class BookingFlow:
         else:
             self.book_form.dest_station = self.book_form.dest_station = self.book_info.station_info("到達")
 
+    def set_outbound_date(self) -> None:
+        if self.record.outbound_date is not None:
+            self.book_form.outbound_date = self.record.outbound_date
+        else:
+            self.book_form.outbound_date = self.book_info.date_info("出發")
+
     def set_outbound_time(self) -> None:
         if self.record.outbound_time is not None:
             self.book_form.outbound_time = self.record.outbound_time
@@ -115,9 +122,11 @@ class BookingFlow:
     def set_adult_ticket_num(self) -> None:
         if self.record.adult_num is not None:
             self.book_form.adult_ticket_num = self.record.adult_num
+            # self.book_form.college_ticket_num = "1P"
         else:
             sel = self.book_info.ticket_num_info("大人", default_value=1)
             self.book_form.adult_ticket_num = AdultTicket().get_code(sel)
+            # self.book_form.college_ticket_num = "1P"
 
     def set_personal_id(self) -> None:
         if self.record.personal_id is not None:

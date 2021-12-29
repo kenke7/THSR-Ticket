@@ -23,7 +23,8 @@ class ParseAvailTrain:
         "irs_ind_eb2_zh_TW": "9折",
         "irs_ind_ebX_zh_TW": "65折",
         "25off": "75折",
-        "50off": "5折"
+        "50off": "5折",
+        "12off": "88折"
     }
 
     form_value = {
