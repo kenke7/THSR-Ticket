@@ -27,6 +27,7 @@ class HTTPRequest:
 
     def request_security_code_img(self, book_page: bytes) -> Response:
         img_url = parse_security_img_url(book_page)
+        print(img_url)
         return self.sess.get(img_url, headers=self.common_head_html)
 
     def submit_booking_form(self, params: Mapping[str, Any]) -> Response:
